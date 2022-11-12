@@ -22,4 +22,6 @@ fetchData(`${API}/products`)
     return fetchData(`${API}/categories/${productCategory.category.id}`);
   })
   .then((response) => response.json())
-  .then((category) => console.log(category.name));
+  .then((category) => console.log(category.name))
+  .catch((err) => console.log(err))
+  .finally(() => console.log("Fin del Fetch"));
