@@ -14,12 +14,14 @@ const fetchData = (urlApi) => fetch(urlApi);
 
 fetchData(`${API}/products`)
   .then((response) => response.json())
-  .then((product) => {
-    return fetchData(`${API}/products/${product[0].id}`);
+  .then((products) => {
+    // console.log(product);
+    return fetchData(`${API}/products/${products[0].id}`);
   })
   .then((response) => response.json())
-  .then((productCategory) => {
-    return fetchData(`${API}/categories/${productCategory.category.id}`);
+  .then((product) => {
+    console.log(product);
+    return fetchData(`${API}/categories/${product.category.id}`);
   })
   .then((response) => response.json())
   .then((category) => console.log(category.name))
